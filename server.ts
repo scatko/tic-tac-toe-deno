@@ -94,13 +94,6 @@ for await (const request of server) {
     continue
   }
 
-  // static files
-  if (await fileExists(path)) {
-    const content = await serveFile(request, path)
-    request.respond(content)
-    continue
-  }
-
   // TODO Implement API end points here
   if (request.url.slice(0, 4) === "/api") {
     const endpoint = request.url.slice(4)
@@ -108,8 +101,13 @@ for await (const request of server) {
     continue
   }
 
-  // 404
-  if (await fileExists(notFoundPath)) {
+  // static files
+  if (await fileExists(path)) {
+    const content = await serveFile(request, path)
+    request.respond(content)
+    continue
+  } else {
+    // 404
     const notFoundContent = await serveFile(request, notFoundPath)
     request.respond(notFoundContent)
   }
