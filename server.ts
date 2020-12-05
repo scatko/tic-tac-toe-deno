@@ -46,7 +46,7 @@ for await (const request of server) {
   const date = new Date()
   console.log(`${date.toISOString()} - ${request.method} ${request.url}`)
 
-  if (path === "/") {
+  if (request.url === "/") {
     const content = await serveFile(request, `${Deno.cwd()}/${INDEX_DIST_PATH}`)
     request.respond(content)
     continue
