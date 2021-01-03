@@ -8,3 +8,39 @@ h1 {
   font-size: 2rem;
   color: dodgerblue;
 }
+
+#app {
+  display: flex;
+  justify-content: center;
+}
+
+.field {
+  height: 320px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cell {
+  background-color: antiquewhite;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: cursive;
+  font-size: 60px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+
+  cursor: pointer;
+  user-select: none;
+}
+
